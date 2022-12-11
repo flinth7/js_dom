@@ -67,33 +67,21 @@ document.body.append(removeBtn)
 
 // Mission 5
 const space5 = document.createElement('br')
-const buttons = document.createElement('div')
-buttons.addEventListener('click', function(event) {
-    document.body.style.backgroundColor = event.srcElement.innerText
-})
-const blueButton = document.createElement('button')
-blueButton.innerText = "Blue"
-blueButton.style.backgroundColor = "Blue"
-
-const redButton = document.createElement('button')
-redButton.innerText = "Red"
-redButton.style.backgroundColor = "Red"
-
-const greenButton = document.createElement('button')
-greenButton.innerText = "Green"
-greenButton.style.backgroundColor = "Green"
-
-const blackButton = document.createElement('button')
-blackButton.innerText = "Black"
-blackButton.style.color = "White"
-blackButton.style.backgroundColor = "Black"
-
 document.body.append(space5)
-document.body.append(buttons)
-buttons.appendChild(blueButton)
-buttons.appendChild(redButton)
-buttons.appendChild(greenButton)
-buttons.appendChild(blackButton)
+
+const buttons = ["Blue", "Red", "Green", "Black"]
+buttons.forEach(function(btn) {
+    const btnElement = document.createElement('button')
+    btnElement.innerText = btn;
+    btnElement.style.backgroundColor = btn;
+    if(btn === "Black") {
+        btnElement.style.color = "White";
+    }
+    btnElement.addEventListener('click', function(event) {
+        document.body.style.backgroundColor = btn;
+    })
+    document.body.append(btnElement)
+})
 
 
 // Mission 6
